@@ -14,3 +14,8 @@ Dieses Problem soll gelöst werden, indem der beste Filter einfach extern berech
 
 ## Beitragen
 Mach eine PR in der du die Datei "/src/school_config.js" editierst, dass sie für deine Schule passt
+
+## API
+```
+https://lanis-mobile-autoconfig.alessioc42.workers.dev/substitutions/<<<schoolID>>>?stufe=<<<jahrgangsstufe>>>&klasse=<<<klasse>>>
+```
