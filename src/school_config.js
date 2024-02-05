@@ -24,7 +24,6 @@ let SCHOOL_CONFIGS = {
 	},
 	//Configs for Augustinerschule Friedberg
 	"5174": (stufe, klasse, isStudent) => {
-  	let result = defaultSubstitutionsFilterExtractor(stufe, klasse, isStudent);
   	let parsedKlasse = parseInt(klasse);
 
  		return {
