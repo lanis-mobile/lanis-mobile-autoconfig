@@ -21,7 +21,17 @@ let SCHOOL_CONFIGS = {
 		}
 
 		return result;
-	}
+	},
+	//Configs for Augustinerschule Friedberg
+	"5174": (stufe, klasse, isStudent) => {
+  	let parsedKlasse = parseInt(klasse);
+
+ 		return {
+    			"stufe": (stufe === "13" || stufe === "12") ? "Q" : (stufe === "11" ? "E" : stufe),
+    			"klasse": (!isNaN(parsedKlasse) && parsedKlasse < 11) ? klasse.substr(String(parsedKlasse).length) : "",
+    			"lehrer": "",
+    		};
+ 	}
 }
 
 export default  SCHOOL_CONFIGS;
