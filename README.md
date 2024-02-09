@@ -13,6 +13,8 @@ In [der App](https://github.com/alessioc42/lanis-mobile) wurde dieses Problem ge
 Dieses Problem soll gelöst werden, indem der beste Filter einfach extern berechnet wird. Extern deshalb, weil eine neue Version der Anwendung notwendig wäre, um einen Filter für eine neue Schule zu konfigurieren. So können verschiedene Schulen hinzugefügt werden, ohne einen neuen Release zu machen.
 
 ## Beitragen
+[guide](https://github.com/alessioC42/lanis-mobile-autoconfig/wiki/Eine-Schule-hinzuf%C3%BCgen)
+
 Mach eine PR in der du die Datei "/src/school_config.js" editierst, dass sie für deine Schule passt. Wenn du dass nicht kannst, dann hilft es uns schon, wenn du uns informationen zu deiner Schule gibst. 
 
 Es wäre ideal, wenn du eine eigene Pull Request erstellen kannst, um deine Schule zu implementieren (JavaScript-Kenntnisse erforderlich). Es würde uns jedoch auch helfen, wenn du uns nur einige Namenskonventionen für Klassen in Schulen und Einträge im Vertretungsplan deiner Schule zur Verfügung stellen könntest. (bevorzugt ein GH Issue aber auch per Mail an <a href="mailto:alessioc42.dev@gmail.com">mich</a>)
