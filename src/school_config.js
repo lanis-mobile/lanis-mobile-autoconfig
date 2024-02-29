@@ -31,7 +31,20 @@ let SCHOOL_CONFIGS = {
     			"klasse": (!isNaN(parsedKlasse) && parsedKlasse < 11) ? klasse.substr(String(parsedKlasse).length) : "",
     			"lehrer": "",
     		};
- 	}
+	},
+	//Configs for Otto-Hahn-Schule Nieder-Eschbach
+	"6091": (_, __, ___) => {
+
+		/* This school is sometimes really inconsistent with
+		 * the entries. So that the students don't miss something, we better leave it empty.
+		 */
+
+		return {
+			"stufe": "",
+			"klasse": "",
+			"lehrer": ""
+		};
+	}
 }
 
 export default  SCHOOL_CONFIGS;
