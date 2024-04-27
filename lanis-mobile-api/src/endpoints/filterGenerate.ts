@@ -42,7 +42,7 @@ export class GenerateFilter extends OpenAPIRoute {
         context: any,
         data: Record<string, any>
     ) {
-        const accountInfo: typeof AccountInfo = await request.json();
+        const accountInfo: typeof AccountInfo = data.body;
         if (!accountInfo.schoolID) {
             return Response.json(
                 {

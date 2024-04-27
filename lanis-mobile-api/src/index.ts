@@ -7,7 +7,7 @@ export const router = OpenAPIRouter({
 });
 
 
-router.get("/api/filter/generate/", GenerateFilter);
+router.post("/api/filter/generate/", GenerateFilter);
 
 // 404 for everything else
 router.all("*", () =>
