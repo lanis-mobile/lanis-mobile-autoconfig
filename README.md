@@ -6,6 +6,8 @@
  </p>
 </a>
 
+## API https://lanis-mobile-api.alessioc42.workers.dev/
+
 ## Wieso ist das notwendig
 Ein Grund für die Entwicklung von Lanis-Mobile waren die schlechten Filter der Filterlösung des Schulportals. Diese funktioniert an sich sehr gut, wenn sie richtig eingesetzt wird. Allerdings ist die Logik, nach der die Klasse des Vertretungseintrags mit der Klasse des Benutzers verglichen wird, sehr eingeschränkt. Außerdem verwenden verschiedene Schulen unterschiedliche Namensschemata, um ihre Klassen zu organisieren. 
 
@@ -16,11 +18,7 @@ Dieses Problem soll gelöst werden, indem der beste Filter einfach extern berech
 ## Beitragen
 [guide](https://github.com/alessioC42/lanis-mobile-autoconfig/wiki/Eine-Schule-hinzuf%C3%BCgen)
 
-Mach eine PR in der du die Datei "/src/school_config.js" editierst, dass sie für deine Schule passt. Wenn du dass nicht kannst, dann hilft es uns schon, wenn du uns informationen zu deiner Schule gibst. 
+Mach eine PR in der du die Datei `lanis-mobile-api/src/endpoints/filterGenerate.ts` editierst, dass sie für deine Schule passt. Wenn du dass nicht kannst, dann hilft es uns schon, wenn du uns informationen zu deiner Schule gibst. 
 
-Es wäre ideal, wenn du eine eigene Pull Request erstellen kannst, um deine Schule zu implementieren (JavaScript-Kenntnisse erforderlich). Es würde uns jedoch auch helfen, wenn du uns nur einige Namenskonventionen für Klassen in Schulen und Einträge im Vertretungsplan deiner Schule zur Verfügung stellen könntest. (bevorzugt ein GH Issue aber auch per Mail an <a href="mailto:alessioc42.dev@gmail.com">mich</a>)
+Es wäre ideal, wenn du eine eigene Pull Request erstellen kannst, um deine Schule zu implementieren (JS/TS-Kenntnisse erforderlich). Es würde uns jedoch auch helfen, wenn du uns nur einige Namenskonventionen für Klassen in Schulen und Einträge im Vertretungsplan deiner Schule zur Verfügung stellen könntest. (bevorzugt ein GH Issue aber auch per Mail an <a href="mailto:alessioc42.dev@gmail.com">mich</a>)
 
-## API
-```
-https://lanis-mobile-autoconfig.alessioc42.workers.dev/substitutions/<<<schoolID>>>?stufe=<<<jahrgangsstufe>>>&klasse=<<<klasse>>>
-```
