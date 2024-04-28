@@ -69,10 +69,13 @@ export class GenerateFilter extends OpenAPIRoute {
                         success: true,
                         result: {
                             task: {
-                                Klasse: [
-                                    accountInfo.classString.includes("q") ? "Q" : "E",
-                                    klasseMatch ? klasseMatch[0] : "",
-                                ]
+                                Klasse: {
+                                    strict: true,
+                                    filter: [
+                                        accountInfo.classString.includes("q") ? "Q" : "E",
+                                        klasseMatch ? klasseMatch[0] : "",
+                                    ]
+                                }
                             }
                         }
                     }
@@ -86,10 +89,13 @@ export class GenerateFilter extends OpenAPIRoute {
                         success: true,
                         result: {
                             task: {
-                                Klasse: [
-                                    klasseMatch[1],
-                                    klasseMatch[2],
-                                ]
+                                Klasse: {
+                                    strict: true,
+                                    filter: [
+                                        klasseMatch[1],
+                                        klasseMatch[2],
+                                    ]
+                                }
                             }
                         }
                     }
@@ -111,10 +117,13 @@ export class GenerateFilter extends OpenAPIRoute {
                     success: true,
                     result: {
                         task: {
-                            Klasse: [
-                                (accountInfo.classLevel === "13" || accountInfo.classLevel === "12") ? "Q" : (accountInfo.classLevel === "11" ? "E" : accountInfo.classLevel),
-                                (!isNaN(parsedKlasse) && parsedKlasse < 11) ? accountInfo.classString.slice(String(parsedKlasse).length) : ""
-                            ]
+                            Klasse: {
+                                strict: true,
+                                filter: [
+                                    (accountInfo.classLevel === "13" || accountInfo.classLevel === "12") ? "Q" : (accountInfo.classLevel === "11" ? "E" : accountInfo.classLevel),
+                                    (!isNaN(parsedKlasse) && parsedKlasse < 11) ? accountInfo.classString.slice(String(parsedKlasse).length) : ""
+                                ]
+                            }
                         }
                     }
                 }

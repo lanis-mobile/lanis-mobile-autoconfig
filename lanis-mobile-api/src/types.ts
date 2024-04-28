@@ -1,4 +1,4 @@
-import { DateTime, Str } from "@cloudflare/itty-router-openapi";
+import {Bool, DateTime, Str} from "@cloudflare/itty-router-openapi";
 
 export const Task = {
 	name: new Str({ example: "lorem" }),
@@ -8,21 +8,26 @@ export const Task = {
 	due_date: new DateTime(),
 };
 
+const EntryFilter = {
+	strict: Bool,
+	filter: [String] || null,
+}
+
 export const SubstitutionFilter = {
-	Vertreter: [String] || null,
-	Lehrer: [String] || null,
-	Stunde: [String] || null,
-	Klasse: [String] || null,
-	Klasse_alt: [String] || null,
-	Fach: [String] || null,
-	Fach_alt: [String] || null,
-	Raum: [String] || null,
-	Raum_alt: [String] || null,
-	Hinweis: [String] || null,
-	Art: [String] || null,
-	Hinweis2: [String] || null,
-	Lehrerkuerzel: [String] || null,
-	Vertreterkuerzel: [String] || null,
+	Vertreter: EntryFilter,
+	Lehrer: EntryFilter,
+	Stunde: EntryFilter,
+	Klasse: EntryFilter,
+	Klasse_alt: EntryFilter,
+	Fach: EntryFilter,
+	Fach_alt: EntryFilter,
+	Raum: EntryFilter,
+	Raum_alt: EntryFilter,
+	Hinweis: EntryFilter,
+	Art: EntryFilter,
+	Hinweis2: EntryFilter,
+	Lehrerkuerzel: EntryFilter,
+	Vertreterkuerzel: EntryFilter,
 }
 
 export const AccountInfo = {
