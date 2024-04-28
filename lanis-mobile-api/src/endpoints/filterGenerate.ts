@@ -2,7 +2,7 @@ import {
     OpenAPIRoute,
     OpenAPIRouteSchema,
 } from "@cloudflare/itty-router-openapi";
-import {AccountInfo, SubstitutionFilter} from "../types";
+import {Account, AccountInfo, SubstitutionFilter} from "../types";
 
 export class GenerateFilter extends OpenAPIRoute {
     static schema: OpenAPIRouteSchema = {
@@ -16,7 +16,7 @@ export class GenerateFilter extends OpenAPIRoute {
                     success: Boolean,
                     result: {
                         task: SubstitutionFilter,
-                    },
+                    } || null,
                 },
             },
             "400": {
@@ -37,12 +37,12 @@ export class GenerateFilter extends OpenAPIRoute {
     };
 
     async handle(
-        request: Request,
-        env: any,
-        context: any,
+        _request: Request,
+        _env: any,
+        _context: any,
         data: Record<string, any>
     ) {
-        const accountInfo: typeof AccountInfo = data.body;
+        const accountInfo: Account = data.body;
         if (!accountInfo.schoolID) {
             return Response.json(
                 {
@@ -56,6 +56,70 @@ export class GenerateFilter extends OpenAPIRoute {
 
         switch (schoolID) {
             case 5182: // Max-Planck-Schule Rüsselsheim am Main
+                if (isTeacher) return {
+                    success: true,
+                    result: null
+                }
+                accountInfo.classString = accountInfo.classString.toLowerCase();
+
+                if (accountInfo.classString.includes("q") || accountInfo.classString.includes("e")) {
+                    //get first digit from string
+                    let klasseMatch = accountInfo.classString.match(/\d+/);
+                    return {
+                        success: true,
+                        result: {
+                            task: {
+                                Klasse: [
+                                    accountInfo.classString.includes("q") ? "Q" : "E",
+                                    klasseMatch ? klasseMatch[0] : "",
+                                ]
+                            }
+                        }
+                    }
+                }
+
+                //Klassenbezeichnungen wie 5a, 5b, 5c, 5d, 10a, 10b, 13c etc.
+                //lösung mit regex
+                let klasseMatch = accountInfo.classString.match(/(\d+)([a-zA-Z]+)/);
+                if (klasseMatch) {
+                    return {
+                        success: true,
+                        result: {
+                            task: {
+                                Klasse: [
+                                    klasseMatch[1],
+                                    klasseMatch[2],
+                                ]
+                            }
+                        }
+                    }
+                }
+
+                return {
+                    success: false,
+                    result: null
+                }
+            case 5181: // Immanuel-Kant-Schule Rüsselsheim am Main
+                //Hier funktioniert der schuleigene Filter. (gesehen nur bei E-Phase)
+                return {
+                    success: true,
+                    result: null
+                }
+            case 5174: // Augustinerschule Friedberg
+                let parsedKlasse = parseInt(accountInfo.classString);
+                return {
+                    success: true,
+                    result: {
+                        task: {
+                            Klasse: [
+                                (accountInfo.classLevel === "13" || accountInfo.classLevel === "12") ? "Q" : (accountInfo.classLevel === "11" ? "E" : accountInfo.classLevel),
+                                (!isNaN(parsedKlasse) && parsedKlasse < 11) ? accountInfo.classString.slice(String(parsedKlasse).length) : ""
+                            ]
+                        }
+                    }
+                }
+            case 6091: // Otto-Hahn-Schule Nieder-Eschbach
+                //Inconsistent entries by school so there should be no filter
                 return {
                     success: true,
                     result: null

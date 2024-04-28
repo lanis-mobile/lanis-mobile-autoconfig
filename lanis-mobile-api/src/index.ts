@@ -3,7 +3,6 @@ import {GenerateFilter} from "./endpoints/filterGenerate";
 
 export const router = OpenAPIRouter({
 	docs_url: "/",
-
 });
 
 

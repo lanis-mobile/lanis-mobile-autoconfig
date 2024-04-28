@@ -9,22 +9,20 @@ export const Task = {
 };
 
 export const SubstitutionFilter = {
-	Tag: [String],
-	Tag_en: [String],
-	Vertreter: [String],
-	Lehrer: [String],
-	Stunde: [String],
-	Klasse: [String],
-	Klasse_alt: [String],
-	Fach: [String],
-	Fach_alt: [String],
-	Raum: [String],
-	Raum_alt: [String],
-	Hinweis: [String],
-	Art: [String],
-	Hinweis2: [String],
-	Lehrerkuerzel: [String],
-	Vertreterkuerzel: [String],
+	Vertreter: [String] || null,
+	Lehrer: [String] || null,
+	Stunde: [String] || null,
+	Klasse: [String] || null,
+	Klasse_alt: [String] || null,
+	Fach: [String] || null,
+	Fach_alt: [String] || null,
+	Raum: [String] || null,
+	Raum_alt: [String] || null,
+	Hinweis: [String] || null,
+	Art: [String] || null,
+	Hinweis2: [String] || null,
+	Lehrerkuerzel: [String] || null,
+	Vertreterkuerzel: [String] || null,
 }
 
 export const AccountInfo = {
@@ -32,4 +30,11 @@ export const AccountInfo = {
 	loginName: String,
 	classString: String || null,
 	classLevel: String || null,
+}
+
+export type Account = {
+	schoolID: string,
+	loginName: string,
+	classString?: string,
+	classLevel?: string,
 }
