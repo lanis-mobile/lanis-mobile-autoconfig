@@ -32,14 +32,14 @@ export const SubstitutionFilter = {
 
 export const AccountInfo = {
 	schoolID: String,
-	loginName: String,
+	//loginName: String,
 	classString: String || null,
 	classLevel: String || null,
 }
 
 export type Account = {
 	schoolID: string,
-	loginName: string,
+	//loginName: string,
 	classString?: string,
 	classLevel?: string,
 }
